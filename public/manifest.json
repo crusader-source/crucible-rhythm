@@ -1,0 +1,13 @@
+{
+  "name": "Crucible Rhythm",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "author": "Kevin",
+  "description": "Interactive boss encounter rhythm mechanics.",
+  "action": {
+    "title": "The Crucible",
+    "popover": "/",
+    "height": 500,
+    "width": 350
+  }
+}
