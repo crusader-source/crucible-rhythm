@@ -2,11 +2,12 @@
   "name": "Crucible Rhythm",
   "version": "1.0.0",
   "manifest_version": 1,
-  "author": "Kevin",
+  "author": "dawg",
   "description": "Interactive boss encounter rhythm mechanics.",
   "action": {
     "title": "The Crucible",
-    "popover": "/",
+    "icon": "https://cdn.jsdelivr.net/gh/crusader-source/crucible-rhythm@main/dist/icon.png",
+    "popover": "https://cdn.jsdelivr.net/gh/crusader-source/crucible-rhythm@main/dist/index.html",
     "height": 500,
     "width": 350
   }
