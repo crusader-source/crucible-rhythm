@@ -2,7 +2,7 @@
   "name": "Crucible Rhythm",
   "version": "1.0.0",
   "manifest_version": 1,
-  "author": "dawg",
+  "author": "Kevin",
   "description": "Interactive boss encounter rhythm mechanics.",
   "action": {
     "title": "The Crucible",
