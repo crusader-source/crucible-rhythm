@@ -32,8 +32,8 @@ OBR.onReady(async () => {
       await OBR.modal.open({
         id: MODAL_ID,
         url: `https://crusader-source.github.io/crucible-rhythm/entangled.html?turns=${message.turnsRemaining}`,
-        width: 450,
-        height: 350,
+        width: 500,
+        height: 420,
         hidePaper: true,
         hideBackdrop: true
       })
