@@ -133,7 +133,7 @@ OBR.onReady(async () => {
       const status = document.querySelector('#player-status')
 
       if (message.turnsRemaining === 0) {
-        status.textContent = 'The rhythm trial is ready!'
+        status.textContent = 'Trial Begins'
       } else {
         status.textContent =
           `You are entangled! ${message.turnsRemaining} turns remaining.`

@@ -1,4 +1,3 @@
-
 {
   "name": "Crucible Rhythm",
   "version": "1.0.0",
@@ -7,8 +6,9 @@
   "description": "Interactive boss encounter rhythm mechanics.",
   "action": {
     "title": "The Crucible",
-    "icon": "https://crusader-source.github.io/crucible-rhythm/icon.png",
-    "popover": "https://crusader-source.github.io/crucible-rhythm/index.html",
+    "background_url": "https://crusader-source.github.io/crucible-rhythm/background.html",
+    "icon": "https://cdn.jsdelivr.net/gh/crusader-source/crucible-rhythm@main/dist/icon.png",
+    "popover": "https://cdn.jsdelivr.net/gh/crusader-source/crucible-rhythm@main/dist/index.html",
     "height": 500,
     "width": 350
   }
