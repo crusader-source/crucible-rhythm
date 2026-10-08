@@ -1,4 +1,4 @@
-
+import './entangled.css'
 import OBR from '@owlbear-rodeo/sdk'
 
 const CHANNEL = 'com.crucible-rhythm.entanglement'
