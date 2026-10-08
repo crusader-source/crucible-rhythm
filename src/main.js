@@ -1,33 +1,86 @@
+
 import './style.css'
 import OBR from '@owlbear-rodeo/sdk'
 
-document.querySelector('#app').innerHTML = `
-  <div class="crucible">
-    <h1>The Crucible</h1>
-    <p class="subtitle">Boss Encounter Controller</p>
+const playerList = document.querySelector('#app')
 
-    <div class="status">
-      <span class="status-light"></span>
-      Extension Online
-    </div>
+const entangledPlayers = new Map()
 
-    <hr>
-
-    <h2>Entanglement</h2>
-
-    <div class="player">
-      <div>
-        <strong>Test Player</strong>
-        <p>Ready</p>
+function renderPlayers(players) {
+  playerList.innerHTML = `
+    <div class="crucible">
+      <h1>The Crucible</h1>
+      <p class="subtitle">Boss Encounter Controller</p>
+      <div class="status">
+        <span class="status-light"></span>
+        Extension Online
       </div>
-
-      <button id="entangle">
-        Entangle
-      </button>
+      <hr>
+      <h2>Entanglement</h2>
+      <div id="player-list"></div>
     </div>
-  </div>
-`
+  `
 
-OBR.onReady(() => {
-  console.log("Crucible connected to Owlbear Rodeo")
+  const container = document.querySelector('#player-list')
+
+  for (const player of players) {
+    const turns = entangledPlayers.get(player.id)
+
+    const card = document.createElement('div')
+    card.className = 'player'
+    card.style.marginBottom = '10px'
+
+    const details = document.createElement('div')
+    const name = document.createElement('strong')
+    name.textContent = player.name
+
+    const status = document.createElement('p')
+    status.textContent = turns === undefined
+      ? 'Ready'
+      : turns === 0
+        ? 'Rhythm trial ready'
+        : `Entangled: ${turns} turns remaining`
+
+    details.append(name, status)
+    card.appendChild(details)
+
+    const button = document.createElement('button')
+
+    if (turns === undefined) {
+      button.textContent = 'Entangle'
+      button.onclick = () => {
+        entangledPlayers.set(player.id, 3)
+        renderPlayers(players)
+      }
+    } else if (turns > 0) {
+      button.textContent = 'Advance Turn'
+      button.onclick = () => {
+        entangledPlayers.set(player.id, turns - 1)
+        renderPlayers(players)
+      }
+    } else {
+      button.textContent = 'Release'
+      button.onclick = () => {
+        entangledPlayers.delete(player.id)
+        renderPlayers(players)
+      }
+    }
+
+    card.appendChild(button)
+    container.appendChild(card)
+  }
+}
+
+OBR.onReady(async () => {
+  const role = await OBR.player.getRole()
+
+  if (role !== 'GM') {
+    playerList.textContent = 'GM controls only.'
+    return
+  }
+
+  const players = await OBR.party.getPlayers()
+  renderPlayers(players)
+
+  OBR.party.onChange(renderPlayers)
 })
