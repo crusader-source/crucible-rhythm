@@ -9,7 +9,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
-        background: resolve(import.meta.dirname, 'background.html')
+        background: resolve(import.meta.dirname, 'background.html'),
+        entangled: resolve(import.meta.dirname, 'entangled.html')
       }
     }
   }

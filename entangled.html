@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crucible Terminal</title>
+  <link rel="stylesheet" href="/src/entangled.css" />
+</head>
+<body>
+  <main class="terminal">
+    <header>
+      <span>CRUCIBLE_OS // v0.9.1</span>
+      <span>▣</span>
+    </header>
+
+    <section class="boot">
+      <p>&gt; INITIALIZING CONTAINMENT...</p>
+      <p>&gt; SUBJECT IDENTIFIED</p>
+      <p>&gt; OVERRIDE DENIED<span class="cursor">_</span></p>
+    </section>
+
+    <section class="countdown">
+      <h1>[ ENTANGLEMENT ACTIVE ]</h1>
+      <p>RELEASE PROTOCOL IN</p>
+      <div id="turns">03</div>
+      <p id="countdown-label">TURNS REMAINING</p>
+    </section>
+
+    <footer>
+      <span id="system-status">SYS.STATUS: LOCKED</span>
+      <span>█ █ █ ░ ░</span>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/entangled.js"></script>
+</body>
+</html>

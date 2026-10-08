@@ -1,0 +1,111 @@
+
+:root {
+  font-family: "Courier New", monospace;
+  color: #76B88A;
+  background: #090e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #090e0b;
+}
+
+.terminal {
+  position: relative;
+  min-height: 100vh;
+  padding: 20px;
+  border: 1px solid #345640;
+  overflow: hidden;
+  text-shadow: 0 0 5px #76b88a44;
+}
+
+.terminal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    #00000035 4px
+  );
+}
+
+header, footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+header {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #345640;
+}
+
+.boot {
+  margin-top: 22px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.boot p {
+  margin: 4px 0;
+  animation: appear 0.4s both;
+}
+
+.boot p:nth-child(2) { animation-delay: 0.35s; }
+.boot p:nth-child(3) { animation-delay: 0.7s; }
+
+.countdown {
+  margin: 32px 0 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.countdown p {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#turns {
+  font-size: 68px;
+  color: #91CBA1;
+  margin: 8px 0;
+  text-shadow: 0 0 12px #76b88a55;
+}
+
+footer {
+  padding-top: 14px;
+  border-top: 1px solid #345640;
+}
+
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+  }
+}
